@@ -1,6 +1,6 @@
-# ordered online menu service
+# ordered online products service
 
-This django based micro service provides an API to obtain menus from locations.
+This django based micro service provides an API to obtain products from locations.
 
 ## Technology Stack
 
