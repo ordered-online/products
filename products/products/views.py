@@ -10,6 +10,8 @@ from .models import Product, Category, Tag, Additive
 
 
 class SuccessResponse(JsonResponse):
+    status_code = 200
+
     def __init__(self, response=None, *args, **kwargs):
         if response is None:
             super().__init__({
@@ -34,30 +36,37 @@ class AbstractFailureResponse(JsonResponse):
 
 class IncorrectAccessMethod(AbstractFailureResponse):
     reason = "incorrect_access_method"
+    status_code = 405
 
 
 class ProductNotFound(AbstractFailureResponse):
     reason = "product_not_found"
+    status_code = 404
 
 
 class DuplicateProduct(AbstractFailureResponse):
     reason = "duplicate_product"
+    status_code = 400
 
 
 class MalformedJson(AbstractFailureResponse):
     reason = "malformed_json"
+    status_code = 400
 
 
 class IncorrectCredentials(AbstractFailureResponse):
     reason = "incorrect_credentials"
+    status_code = 403
 
 
 class VerificationServiceUnavailable(AbstractFailureResponse):
     reason = "verification_service_unavailable"
+    status_code = 503
 
 
 class LocationsServiceUnavailable(AbstractFailureResponse):
     reason = "locations_service_unavailable"
+    status_code = 503
 
 
 def find_products(request) -> JsonResponse:
