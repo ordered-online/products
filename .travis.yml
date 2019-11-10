@@ -1,9 +1,11 @@
 git:
   submodules: false
 
-before_install:
-  - 
-
 jobs:
   include:
-    - script: ./build-documentation.sh
+    - stage: "Documentation"
+      name: "Build Documentation"
+      script: ./build-documentation.sh
+    - stage: "Submodule"
+      name: "Update Submodule"
+      script: ./update-submodule.sh
