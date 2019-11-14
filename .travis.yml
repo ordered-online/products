@@ -1,11 +1,15 @@
 git:
   submodules: false
 
+branches:
+  only:
+    - master
+
 jobs:
   include:
-    - stage: "Documentation"
-      name: "Build Documentation"
+    - stage: 'Documentation'
+      name: 'Build Documentation'
       script: ./build-documentation.sh
-    - stage: "Submodule"
-      name: "Update Submodule"
+    - stage: 'Submodule'
+      name: 'Update Submodule'
       script: ./update-submodule.sh
