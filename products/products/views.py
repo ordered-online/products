@@ -14,14 +14,9 @@ class SuccessResponse(JsonResponse):
 
     def __init__(self, response=None, *args, **kwargs):
         if response is None:
-            super().__init__({
-                "success": True,
-            }, *args, **kwargs)
+            super().__init__({}, *args, **kwargs)
         else:
-            super().__init__({
-                "success": True,
-                "response": response
-            }, *args, **kwargs)
+            super().__init__(response, *args, **kwargs)
 
 
 class AbstractFailureResponse(JsonResponse):
@@ -29,7 +24,6 @@ class AbstractFailureResponse(JsonResponse):
 
     def __init__(self, *args, **kwargs):
         super().__init__({
-            "success": False,
             "reason": self.reason
         }, *args, **kwargs)
 
@@ -116,9 +110,7 @@ def find_products(request) -> JsonResponse:
 
     return SuccessResponse(
         [
-            {
-                "product": product.dict_representation
-            }
+            product.dict_representation
             for product in products
         ],
         safe=False
@@ -153,8 +145,8 @@ def verify_user(data: dict) -> tuple:
         "{}/verification/verify/".format(settings.VERIFICATION_SERVICE_URL),
         data=json.dumps({"session_key": session_key, "user_id": user_id})
     )
-    verification_data = response.json()
-    if verification_data.get("success") is not True:
+
+    if response.status_code is not 200:
         raise ValueError()
 
     return user_id, session_key
@@ -167,15 +159,16 @@ def verify_location_owner(user_id, location_id):
     response = requests.get("{}/locations/get/{}/".format(
         settings.LOCATIONS_SERVICE_URL, location_id
     ))
-    location_data = response.json()
-    if location_data.get("success") is not True:
+
+    if response.status_code is not 200:
         raise ValueError()
 
-    # unwrap the user_id from the location data
-    location_object = location_data.get("response")
-    if not location_object:
+    location_data = response.json()
+
+    if not location_data:
         raise ValueError()
-    location_user_id = location_object.get("user_id")
+
+    location_user_id = location_data.get("user_id")
     if not location_user_id:
         raise ValueError()
 
@@ -216,7 +209,7 @@ def make_product(product_data: dict) -> JsonResponse:
         # infer all kwargs from the passed product data
         product.additives.set(Additive.objects.get_or_create(**a)[0] for a in additives)
 
-    return SuccessResponse()
+    return SuccessResponse(product.dict_representation)
 
 
 def create_product(request) -> JsonResponse:
@@ -246,6 +239,10 @@ def create_product(request) -> JsonResponse:
     location_id = product_data.get("location_id")
     if not location_id:
         return MalformedJson()
+
+    print(user_id)    
+    print(location_id)    
+    
     try:
         verify_location_owner(user_id, location_id)
     except ValueError:
