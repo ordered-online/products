@@ -22,3 +22,7 @@ $ python3 manage.py runserver 127.0.0.1:8002
 ```
 
 Note that verification based endpoints need the `locations` and the `verification` service to run.
+
+## Admin panel
+
+The admin panel is accessible to a superuser via `/products/admin/`
