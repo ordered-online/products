@@ -1,0 +1,214 @@
+[
+{
+  "model": "products.category",
+  "pk": "Cold Beverage",
+  "fields": {}
+},
+{
+  "model": "products.category",
+  "pk": "Hot Beverage",
+  "fields": {}
+},
+{
+  "model": "products.tag",
+  "pk": "Recommended",
+  "fields": {}
+},
+{
+  "model": "products.tag",
+  "pk": "Packaging",
+  "fields": {}
+},
+{
+  "model": "products.additive",
+  "pk": "Caffeine",
+  "fields": {}
+},
+{
+  "model": "products.additive",
+  "pk": "Milk",
+  "fields": {}
+},
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "location_id": 1,
+    "name": "Kaffee",
+    "description": "Kaffee \u2013 Kaffee Cr\u00e8me \u2013 Kaffee Americano \u2013 Espresso",
+    "price": "0.80",
+    "tags": [
+      "Recommended"
+    ],
+    "categories": [
+      "Hot Beverage"
+    ],
+    "additives": [
+      "Caffeine"
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "location_id": 1,
+    "name": "Milchkaffee",
+    "description": "Milchkaffee – Latte Macchiato – Cappuccino  – Schokoccino",
+    "price": "1.00",
+    "tags": [
+      "Recommended"
+    ],
+    "categories": [
+      "Hot Beverage"
+    ],
+    "additives": [
+      "Caffeine",
+      "Milk"
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "location_id": 1,
+    "name": "Heiße Schokolade",
+    "description": "Bei Bedarf auch als weiße Schokolade",
+    "price": "1.00",
+    "tags": [
+      "Recommended"
+    ],
+    "categories": [
+      "Hot Beverage"
+    ],
+    "additives": [
+      "Milk"
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "location_id": 1,
+    "name": "Tee",
+    "description": "Verschiedene Sorten",
+    "price": "0.50",
+    "tags": [],
+    "categories": [
+      "Hot Beverage"
+    ],
+    "additives": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "location_id": 1,
+    "name": "Becheraufschlag",
+    "description": "Aufschlag für die Ausgabe eines Bechers",
+    "price": "0.10",
+    "tags": [
+      "Packaging"
+    ],
+    "categories": [],
+    "additives": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "location_id": 1,
+    "name": "Tassenpfand",
+    "description": "Pfand für die Ausgabe einer Tasse",
+    "price": "1.00",
+    "tags": [
+      "Packaging"
+    ],
+    "categories": [],
+    "additives": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "location_id": 1,
+    "name": "Flasche 0.33l",
+    "description": "Getränke nach Auswahl vor Ort (z.B: Kolle Mate)",
+    "price": "1.10",
+    "tags": [
+      "Recommended"
+    ],
+    "categories": [
+      "Cold Beverage"
+    ],
+    "additives": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "location_id": 1,
+    "name": "Flasche 0.5l",
+    "description": "Getränke nach Auswahl vor Ort (z.B: Kolle Mate)",
+    "price": "1.50",
+    "tags": [
+      "Recommended"
+    ],
+    "categories": [
+      "Cold Beverage"
+    ],
+    "additives": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "location_id": 1,
+    "name": "Saft 0.2l",
+    "description": "Sorte nach Auswahl vor Ort",
+    "price": "0.80",
+    "tags": [],
+    "categories": [
+      "Cold Beverage"
+    ],
+    "additives": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "location_id": 1,
+    "name": "Saft 0.5l",
+    "description": "Sorte nach Auswahl vor Ort",
+    "price": "1.70",
+    "tags": [],
+    "categories": [
+      "Cold Beverage"
+    ],
+    "additives": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 11,
+  "fields": {
+    "location_id": 1,
+    "name": "Glaspfand",
+    "description": "Pfand bei der Ausgabe von Gläsern",
+    "price": "1.00",
+    "tags": [
+      "Packaging"
+    ],
+    "categories": [],
+    "additives": []
+  }
+}
+]
