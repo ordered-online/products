@@ -28,8 +28,8 @@ DEBUG = bool(int(os.environ.get('DEBUG', default=1)))
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", default="*").split()
 
-VERIFICATION_SERVICE_URL = os.environ.get("VERIFICATION_SERVICE_URL", default="http://127.0.0.1:8000")
-LOCATIONS_SERVICE_URL = os.environ.get("LOCATIONS_SERVICE_URL", default="http://127.0.0.1:8001")
+VERIFICATION_SERVICE_URL = os.environ.get("VERIFICATION_SERVICE_URL", default="http://verification:8000")
+LOCATIONS_SERVICE_URL = os.environ.get("LOCATIONS_SERVICE_URL", default="http://locations:8000")
 
 
 # Application definition
